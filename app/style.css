@@ -1,0 +1,121 @@
+/* Indonesia in Figures — original design.
+   Palette: deep red #a31621 (sang saka), warm paper #faf7f2, ink #1f2937,
+   gold #c9a227. Batik accent is pure CSS geometry (no images, no fonts
+   downloaded): a repeating diamond band under the header. System fonts only,
+   so the first load is just this file, index.html and the JS modules. */
+:root {
+  --red: #a31621;
+  --red-dark: #7d1019;
+  --paper: #faf7f2;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #5b6470;
+  --line: #e5e0d8;
+  --gold: #c9a227;
+  --gold-soft: #f3e9c8;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+a { color: var(--red); }
+a:hover { color: var(--red-dark); }
+
+/* Header */
+.sitehead { background: var(--red); color: #fff; }
+.headrow { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
+.brand { color: #fff; text-decoration: none; font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 700; letter-spacing: .2px; white-space: nowrap; }
+.brand em { font-style: normal; color: var(--gold-soft); font-weight: 400; }
+.brand .mark { color: var(--gold); font-size: 18px; }
+.nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.nav a { color: #fbe9e7; text-decoration: none; padding: 7px 11px; border-radius: 6px; font-size: 15px; }
+.nav a:hover { background: rgba(255, 255, 255, .14); color: #fff; }
+.nav a.active { background: #fff; color: var(--red); font-weight: 700; }
+.batik {
+  height: 10px;
+  background:
+    repeating-linear-gradient(45deg, var(--gold) 0 6px, transparent 6px 18px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, .55) 0 6px, transparent 6px 18px),
+    var(--red-dark);
+}
+
+/* Hero + headings */
+.hero { padding: 14px 0 2px; }
+.kicker { color: var(--red); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; margin: 0 0 4px; }
+h1 { font-family: Georgia, "Times New Roman", serif; font-size: 34px; line-height: 1.1; margin: 0 0 8px; }
+h2 { font-family: Georgia, "Times New Roman", serif; font-size: 21px; line-height: 1.25; margin: 0 0 5px; }
+h3 { font-size: 17px; margin: 18px 0 4px; }
+.lede { font-size: 17px; color: #374151; max-width: 760px; margin: 0 0 16px; }
+.intro { color: var(--muted); margin: 0 0 10px; max-width: 760px; }
+.strip { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 8px; padding: 10px 14px; margin: 0 0 18px; font-size: 14.5px; }
+.src { font-size: 12.5px; color: #7a828d; margin: 10px 0 0; }
+.more { margin: 12px 0 0; font-weight: 700; }
+
+/* Indicator cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--red); border-radius: 10px; padding: 11px 15px 9px; }
+.card:nth-child(even) { border-top-color: var(--gold); }
+.card-label { font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 3px; }
+.card-value { font-family: Georgia, "Times New Roman", serif; font-size: 29px; line-height: 1; margin: 0 0 5px; color: var(--red-dark); }
+.card-note { margin: 0; font-size: 13.5px; color: #374151; }
+.card .src { margin-top: 6px; }
+
+/* Panels + grids */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 0 0 16px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid2 .panel { margin-bottom: 14px; }
+.panel svg { width: 100%; height: auto; display: block; }
+.facts { margin: 4px 0; padding-left: 20px; }
+.facts li { margin: 6px 0; }
+.quicklinks { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 26px; }
+.quicklinks a { background: var(--red); color: #fff; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 8px; }
+.quicklinks a:hover { background: var(--red-dark); }
+
+/* Tables */
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { background: var(--red-dark); color: #fff; font-size: 13px; white-space: nowrap; position: sticky; top: 0; }
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr:nth-child(even) { background: #fdf9f3; }
+table.mini td:first-child { width: 34px; }
+#prov-table button { all: unset; cursor: pointer; color: #fff; font-weight: 700; }
+#prov-table button:hover { text-decoration: underline; }
+.toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.toolbar label { font-weight: 700; }
+.toolbar input[type="search"] {
+  flex: 1; min-width: 220px; font: inherit; padding: 9px 12px;
+  border: 1.5px solid #c9c2b8; border-radius: 8px; background: #fff;
+}
+.toolbar input[type="search"]:focus { outline: 2px solid var(--red); outline-offset: 1px; border-color: var(--red); }
+.count { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Footer */
+.sitefoot { border-top: 3px solid var(--red); background: #f1ece4; margin-top: 10px; }
+.sitefoot .wrap { padding-top: 18px; padding-bottom: 22px; }
+.sitefoot p { font-size: 13.5px; color: var(--muted); margin: 6px 0; }
+main { padding-top: 8px; min-height: 60vh; }
+
+/* Phones */
+@media (max-width: 760px) {
+  h1 { font-size: 30px; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
+  .headrow { gap: 8px; }
+  .nav { margin-left: 0; }
+  .nav a { padding: 6px 8px; font-size: 14px; }
+  .card-value { font-size: 27px; }
+  .panel { padding: 14px; }
+  .lede { font-size: 16px; }
+}
+@media (max-width: 420px) {
+  .cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .brand { font-size: 21px; }
+}
