@@ -47,11 +47,11 @@ export function renderOverview() {
   const cards = HEADLINE.map(card).join('');
   const popChart = lineChart(
     POPULATION_TREND.map((d) => ({ label: d.year, value: d.value, display: d.value.toFixed(2) })),
-    { label: 'Population 2010–2025, millions', height: 190, min: 200, max: 300 },
+    { label: 'Population 2010–2025, millions', height: 125, min: 200, max: 300 },
   );
   const gdpChart = barChart(
     GDP_QUARTERLY.map((d) => ({ label: d.label, value: d.value, display: d.value.toFixed(2) + '%' })),
-    { label: 'GDP growth by quarter, year-on-year percent', decimals: 1, height: 190 },
+    { label: 'GDP growth by quarter, year-on-year percent', decimals: 1, height: 125 },
   );
   return `
   <section class="hero">
@@ -233,7 +233,7 @@ export function renderProvinces() {
       </tr></thead>
       <tbody id="prov-body">${provinceRows(PROVINCES)}</tbody>
     </table></div>
-    <p class="intro">Totals: 284,438,782 people across 38 provinces (BPS table total; provincial figures are rounded to the nearest 100 in the source). Highest HDI: DKI Jakarta 85.05; lowest: Highland Papua 54.91. Lowest unemployment: Bali 1.49%; highest: Papua 6.96%. Lowest poverty: Bali 3.72%; highest: Highland Papua 30.03%.</p>
+    <p class="intro">Totals: 284,438,782 people across 38 provinces (BPS table total; provincial figures are rounded to the nearest 100 in the source). Highest HDI: DKI Jakarta 85.05; lowest: Highland Papua 54.91. Lowest unemployment: Bali 1.49%; highest: Papua 6.96%. Lowest poverty: Bali 3.72%; highest: Highland Papua 30.03%. SUPAS 2025 counts 284.67 million; the provincial table (Statistik Indonesia 2026) uses the mid-year estimate of 284.44 million — two different BPS releases.</p>
     ${srcTag(PROVINCE_SOURCE, '2025')}
   </section>`;
 }
